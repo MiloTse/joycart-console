@@ -1,5 +1,5 @@
 import './style.scss'
-import React, {useEffect} from "react";
+import {useEffect} from "react";
 import {Link, Outlet, useLocation} from "react-router-dom";
 import {useNavigate} from "react-router-dom";
 
