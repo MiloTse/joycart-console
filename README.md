@@ -123,3 +123,15 @@ const apiUrl = getApiUrl(USER_API.SEARCH);
 // 发起API请求
 const res = await fetch(apiUrl);
 ```
+## 启动开发环境(这个命令会执行在package.json中定义的脚本，它会调用docker compose -f docker-compose.dev.yml up --build -d，构建并启动Docker容器，使应用在容器内运行)
+```bash
+npm run docker:dev
+```
+## 要查看应用日志（可以帮助调试问题），执行
+```bash
+npm run docker:logs
+```
+## 要停止并删除应用容器，执行
+```bash
+npm run docker:stop
+```

@@ -2,14 +2,8 @@ import Mine from './components/Mine';
 
 function App() {
     return (
-        <div className="App">
-
-            <main>
-                <Mine />
-            </main>
-
-        </div>
-    );
+             <Mine/>
+    )
 }
 
 export default App;
