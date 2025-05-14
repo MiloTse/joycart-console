@@ -1,0 +1,18 @@
+FROM node:20-alpine
+
+WORKDIR /app
+
+# 复制package.json和package-lock.json
+COPY package*.json ./
+
+# 安装依赖
+RUN npm install
+
+# 不复制源代码，因为我们会通过卷挂载
+# 容器将使用宿主机上的源代码
+
+# 暴露开发服务器端口
+EXPOSE 8080
+
+# 启动开发服务器（在启动容器时会被覆盖）
+CMD ["npm", "run", "dev"] 

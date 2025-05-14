@@ -1,0 +1,17 @@
+version: '3'
+
+services:
+  frontend:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./:/app
+      - /app/node_modules
+    environment:
+      - VITE_API_BASE_URL=http://host.docker.internal:8082
+    extra_hosts:
+      - "host.docker.internal:host-gateway"
+    command: npm run dev -- --host 
