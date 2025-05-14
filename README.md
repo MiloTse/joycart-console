@@ -52,3 +52,74 @@ export default tseslint.config({
   },
 })
 ```
+
+# Joy Cart
+
+A modern e-commerce platform built with React and TypeScript.
+
+## 项目结构
+
+```
+joycart/
+├── public/              # 静态资源
+├── src/                 # 源代码
+│   ├── api/             # API请求封装
+│   ├── components/      # React组件
+│   ├── config/          # 配置文件
+│   │   └── api.config.ts # API相关配置
+│   ├── assets/          # 静态资源
+│   └── App.tsx          # 主应用组件
+├── .vscode/             # VS Code配置
+├── vite.config.ts       # Vite配置
+└── .env.development     # 环境配置（需要创建）
+```
+
+## 配置
+
+项目使用集中的配置管理方式，主要通过以下文件实现：
+
+1. `src/config/api.config.ts` - API相关配置：
+   - 包含API基础URL、路径前缀等
+   - 对各模块的API路径进行了分组
+   - 提供了便捷的URL生成函数
+
+2. 环境变量 (开发时需要创建以下文件):
+   - `.env.development` - 开发环境配置
+   - `.env.production` - 生产环境配置
+
+环境变量示例：
+```
+# API设置
+VITE_API_BASE_URL=http://localhost:8082
+
+# 应用设置
+VITE_APP_NAME=Joy Cart
+VITE_APP_VERSION=1.0.0
+```
+
+## 开发
+
+```bash
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+
+# 构建生产版本
+npm run build
+```
+
+## API调用
+
+使用集中配置的API：
+
+```typescript
+import { USER_API, getApiUrl } from '../config/api.config';
+
+// 获取完整API路径
+const apiUrl = getApiUrl(USER_API.SEARCH);
+
+// 发起API请求
+const res = await fetch(apiUrl);
+```
