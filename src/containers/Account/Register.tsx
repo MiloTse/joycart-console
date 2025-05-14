@@ -1,7 +1,7 @@
 import type {RegisterResponseType} from "./types";
-import React, {  useState} from "react";
+import  {useState} from "react";
 import useRequest from "../../utils/useRequest";
-import { message } from "../../utils/message";
+import {message} from "../../utils/message";
 import {useNavigate} from "react-router-dom";
 //1. 首先定义接口返回内容
 // type ResponseType = {
@@ -64,11 +64,10 @@ const Register = ()=> {
             }
 
         ).then((data)=>{
-            data && console.log(data);
             if(data?.status==='success') {
                 navigate('/account/login');
             }
-        }).catch((e:any)=>{
+        }).catch((e)=>{
             // alert(e?.message);
             // setShowModal(true);
             // setMessage(e?.message || 'unknown error.');

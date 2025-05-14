@@ -1,8 +1,8 @@
 import type {LoginResponseType} from "./types";
-import React, {useRef, useState} from "react";
+import {useState} from "react";
 import useRequest from "../../utils/useRequest";
 import {useNavigate} from "react-router-dom";
-import { message } from "../../utils/message";
+import {message} from "../../utils/message";
 //1. 首先定义接口返回内容
 // type ResponseType = {
 //     status:string,
@@ -41,8 +41,7 @@ const Login = ()=> {
                 }
             }
         ).then((data)=>{
-            data && console.log(data);
-            //validate
+             //validate
             const {data: token } = data;
             console.log(token)
             if(token) {
@@ -50,7 +49,7 @@ const Login = ()=> {
                 //if login success, redirect to home page
                 navigate('/home');
             }
-         }).catch((e:any)=>{
+         }).catch((e)=>{
              // alert(e?.message);
             // setShowModal(true);
             // setMessage(e?.message || 'unknown error.');
