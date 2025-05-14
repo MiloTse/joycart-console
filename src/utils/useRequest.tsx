@@ -1,4 +1,4 @@
-import axios, {AxiosRequestConfig} from "axios";
+import axios, {type AxiosRequestConfig} from "axios";
 import {useState, useRef, useCallback, useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 import {message} from "./message";
